@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: amq-streams-kafka-cluster
+spec:
+  destination:
+    name: ''
+    namespace: amq-streams-kafka-cluster
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: amq-streams-kafka-cluster/base
+    repoURL: 'https://github.com/snoussi/amq-streams-argocd'
+    targetRevision: main
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true
