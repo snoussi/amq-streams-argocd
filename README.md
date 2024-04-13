@@ -1,9 +1,3 @@
----
-runme:
-  id: 01HVBCGZE7Z4X7X4JKANT9VMNY
-  version: v3
----
-
 # Install OpenShift GitOps operator
 - Use the Openshift console or use this command line
 
