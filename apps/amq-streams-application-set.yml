@@ -1,0 +1,36 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: amq-streams
+spec:
+  generators:
+    - list:
+        elements:
+          - name: amq-streams-kafka-operator
+            namespace: amq-streams
+          - name: amq-streams-kafka-cluster
+            namespace: amq-streams
+          - name: amq-streams-kafka-topic
+            namespace: amq-streams
+  template:
+    metadata:
+      name: '{{name}}'
+      namespace: '{{namespace}}'
+      finalizers:
+        - resources-finalizer.argocd.argoproj.io      
+    spec:
+      destination:
+        server: 'https://kubernetes.default.svc'
+      source:
+        repoURL: 'https://github.com/snoussi/amq-streams-argocd'
+        targetRevision: main
+        path: '{{name}}/base'
+      project: default
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: false
+        syncOptions:
+          - Validate=true
+          - CreateNamespace=true
