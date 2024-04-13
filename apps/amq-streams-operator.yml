@@ -4,18 +4,17 @@ metadata:
   name: amq-streams-kafka-operator
 spec:
   destination:
-    name: ''
-    namespace: ''
+    namespace: amq-streams
     server: 'https://kubernetes.default.svc'
   source:
     path: amq-streams-operator/base
     repoURL: 'https://github.com/snoussi/amq-streams-argocd'
     targetRevision: main
-  sources: []
   project: default
   syncPolicy:
     automated:
       prune: false
       selfHeal: false
     syncOptions:
+      - Validate=true
       - CreateNamespace=true

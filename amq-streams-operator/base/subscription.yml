@@ -3,6 +3,8 @@ kind: Subscription
 metadata:
   labels:
     operators.coreos.com/amq-streams.amq-streams: ""
+  annotations:
+      argocd.argoproj.io/hook: PreSync
   name: amq-streams
 spec:
   channel: stable
