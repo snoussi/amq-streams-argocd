@@ -4,7 +4,7 @@ metadata:
   labels:
     operators.coreos.com/amq-streams.amq-streams: ""
   annotations:
-      argocd.argoproj.io/hook: PreSync
+      argocd.argoproj.io/sync-wave: "-1"
   name: amq-streams
 spec:
   channel: stable
