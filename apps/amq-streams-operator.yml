@@ -4,7 +4,7 @@ metadata:
   name: amq-streams-kafka-operator
 spec:
   destination:
-    namespace: amq-streams
+    namespace: ''
     server: 'https://kubernetes.default.svc'
   source:
     path: amq-streams-operator/base
