@@ -8,7 +8,7 @@ metadata:
       argocd.argoproj.io/sync-wave: "2"
   namespace: amq-streams-kafka-cluster
 spec:
-  partitions: 1
+  partitions: 10
   replicas: 3
   config:
     retention.ms: 604800000
