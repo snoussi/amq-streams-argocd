@@ -7,7 +7,7 @@ spec:
     - list:
         elements:
           - name: amq-streams-operator
-            namespace: amq-streams
+            namespace: openshift-operators
           - name: amq-streams-kafka-cluster
             namespace: amq-streams
           - name: amq-streams-kafka-topic
